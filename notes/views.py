@@ -24,4 +24,6 @@ class NoteDetailView(DetailView):
   template_name = "notes/note_detail.html"
   slug_field = "slug"
   slug_url_kwarg = "slug"
+  context_object_name = "note"
+
 
