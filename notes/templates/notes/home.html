@@ -3,10 +3,12 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-  <h2>Home</h2>
+  <h1>Home</h1>
   <h4><a href="{% url 'note-list' %}">View all notes</a></h4>
 
-  <h3>Latest Notes:</h3>
+  <h3><a href="{% url 'note-create' %}">Create note</a></h3>
+
+  <h2>Latest Notes:</h2>
   {% for note in notes %}
     <h4>
       <a href="{% url 'note-detail' note.slug %}">
