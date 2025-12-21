@@ -3,6 +3,9 @@
 {% block title %}All Notes{% endblock %}
 
 {% block content %}
+  <h3><a href="{% url 'note-create' %}">Create note</a></h3>
+
+  <h2>All Available Notes</h2>
   <ul>
     {% for note in notes %}
       <li>
