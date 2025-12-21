@@ -6,4 +6,7 @@
   <h2>{{ note.title }}</h2>
   <p>{{ note.content }}</p>
   <small>{{ note.created_at }}</small>
+
+  <a href="{% url 'note-update' note.slug %}">Edit</a>
+  <a href="{% url 'note-delete' note.slug %}">Delete</a>
 {% endblock %}
