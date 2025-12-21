@@ -1,20 +1,18 @@
 {% extends "notes/base.html" %}
 
-{% block title %}All Notes{% endblock %}
+{% block title %}Notes{% endblock %}
 
 {% block content %}
-  <h3><a href="{% url 'note-create' %}">Create note</a></h3>
-
-  <h2>All Available Notes</h2>
-  <ul>
-    {% for note in notes %}
-      <li>
-        <h4>
-          <a href="{% url 'note-detail' note.slug %}">
-            {{ note.title }}
-          </a>
-        </h4>
-      </li>
-    {% endfor %}
-  </ul>
+  {% for note in notes %}
+    <div class="card">
+      <h2>
+        <a href="{% url 'note-detail' note.slug %}">
+          {{ note.title }}
+        </a>
+      </h2>
+      <div class="meta">{{ note.created_at }}</div>
+    </div>
+  {% empty %}
+    <p>No notes yet.</p>
+  {% endfor %}
 {% endblock %}

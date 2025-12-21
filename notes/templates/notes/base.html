@@ -1,12 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{% endblock %}</title>
+  <title>{% block title %}Notes{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
 </head>
 <body>
-  {% block content %}
-  {% endblock %}
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="header-left">
+      <span class="logo">Notes</span>
+    </div>
+
+    <nav class="header-right">
+      <a href="{% url 'note-list' %}" class="nav-link">Notes</a>
+      <a href="{% url 'note-create' %}" class="nav-link primary">New</a>
+
+      {% if user.is_authenticated %}
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button class="nav-link logout">Logout</button>
+        </form>
+      {% endif %}
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  {% block content %}{% endblock %}
+</main>
+
 </body>
 </html>

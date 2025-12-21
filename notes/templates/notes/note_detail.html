@@ -1,12 +1,23 @@
 {% extends "notes/base.html" %}
 
-{% block title %}{{ note.owner }}'s {{ note.title }}{% endblock %}
+{% block title %}{{ note.title }}{% endblock %}
 
 {% block content %}
-  <h2>{{ note.title }}</h2>
-  <p>{{ note.content }}</p>
-  <small>{{ note.created_at }}</small>
+  <div class="card">
+    <h2>{{ note.title }}</h2>
 
-  <a href="{% url 'note-update' note.slug %}">Edit</a>
-  <a href="{% url 'note-delete' note.slug %}">Delete</a>
+    <p>
+      {{ note.content|linebreaks }}
+    </p>
+
+    <div class="meta">
+      Created on {{ note.created_at }}
+    </div>
+
+    <div class="actions" style="margin-top: 1rem;">
+      <a href="{% url 'note-update' note.slug %}">Edit</a>
+      ·
+      <a href="{% url 'note-delete' note.slug %}">Delete</a>
+    </div>
+  </div>
 {% endblock %}
