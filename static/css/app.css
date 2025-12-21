@@ -1,0 +1,49 @@
+/* Header */
+.header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* Nav links */
+.nav-link {
+  font-size: 0.9rem;
+  color: #374151;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  background: #f3f4f6;
+  border-radius: 4px;
+}
+
+/* Primary action */
+.nav-link.primary {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* Logout should look like text, not a button */
+.nav-link.logout {
+  color: #6b7280;
+}
